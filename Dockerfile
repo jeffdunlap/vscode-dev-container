@@ -9,9 +9,10 @@ ARG VIMRC_PATH="https://github.com/amix/vimrc.git"
 # Upgrade packages and install new packages
 RUN dnf upgrade -y
 RUN python3 -m ensurepip --upgrade
-RUN dnf install -y python3-devel python3-wheel oniguruma-devel gcc make git fish neofetch wget util-linux util-linux-user which vim powerline powerline-fonts vim-powerline unzip dnf-plugins-core
+RUN dnf install -y python3-devel python3-wheel oniguruma-devel gcc make git fish neofetch wget util-linux util-linux-user which vim powerline powerline-fonts vim-powerline unzip dnf-plugins-core iputils
 
-
+# Install pywinrm
+RUN pip install pywinrm
 
 # Install Powershell
 RUN dnf clean all
